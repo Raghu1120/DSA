@@ -4,6 +4,7 @@ class Solution(object):
         :type nums: List[int]
         :rtype: int
         """
+        #h
         l = 2
         for r in range(2, len(nums)):
             nums[l] = nums[r]
