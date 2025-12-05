@@ -1,6 +1,16 @@
 class Solution:
     def thirdMax(self, nums: List[int]) -> int:
-        distinct = sorted(set(nums), reverse=True)
-        if len(distinct) >= 3:
-            return distinct[2]
-        return distinct[0]
+        first = second = third =None
+        for num in nums:
+            if num in(first,second,third) :
+                continue
+            elif first is None or num > first:
+                third = second
+                second =first
+                first =num
+            elif second is None or num > second:
+                third = second
+                second = num
+            elif third is None or num > third:
+                third = num
+        return third if third is not None else first
