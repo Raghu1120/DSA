@@ -1,3 +1,11 @@
 class Solution:
     def isAnagram(self, s: str, t: str) -> bool:
-        return sorted(s) == sorted(t)
+        freq1 = {}
+        freq2 = {}
+        for num in s:
+            freq1[num] = freq1.get(num,0)+1
+        for num in t:
+            freq2[num] = freq2.get(num,0) +1
+        if freq1 == freq2:
+            return True
+        return False
