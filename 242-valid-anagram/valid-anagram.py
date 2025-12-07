@@ -1,11 +1,14 @@
 class Solution:
     def isAnagram(self, s: str, t: str) -> bool:
-        freq1 = {}
-        freq2 = {}
+        freq = {}
+        if len(s) != len(t):
+            return False
         for num in s:
-            freq1[num] = freq1.get(num,0)+1
+            freq[num] = freq.get(num,0)+1
         for num in t:
-            freq2[num] = freq2.get(num,0) +1
-        if freq1 == freq2:
-            return True
-        return False
+            freq[num] = freq.get(num,0)-1
+            
+        for char,count in freq.items():
+            if count != 0:
+                return False
+        return True
